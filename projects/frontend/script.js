@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Tiago': 'https://images.unsplash.com/photo-1631525048256-42d87e07669d?q=80&w=800'
     };
 
+    if (modelSelect && carImage && carPlaceholder) {
     modelSelect.addEventListener('change', (e) => {
         const val = e.target.value;
         if (carImages[val]) {
@@ -33,7 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             carPlaceholder.classList.add('hidden');
         }
     });
+    }
 
+    if (form && predictBtn && states.default && states.success && results.price && results.range) {
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         
@@ -52,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         numericFields.forEach(f => data[f] = parseFloat(data[f]));
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/predict', {
+            const response = await fetch('/api/predict', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -77,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
             predictBtn.textContent = '🚗 Predict Price';
         }
     });
+    }
 
     // FAQ Toggle simple interaction
     document.querySelectorAll('.faq-header').forEach(header => {

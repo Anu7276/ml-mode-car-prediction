@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "app.py": {
+      "excludeFiles": "{projects/dataset/**,projects/scratch/**,projects/model/baseline_model.pkl,projects/vehicle_price_prediction.py}"
+    }
+  }
+}
