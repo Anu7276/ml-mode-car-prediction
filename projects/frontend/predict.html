@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict Car Price | Car Friendly</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hidden { display: none; }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: var(--primary-color);
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <a href="/" class="logo">
+            <img src="logo.png" alt="Car Friendly Logo">
+            <span>Car Friendly</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/predict">Predict Car Price</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/team">Who We Are</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+        <div>
+            <a href="/contact" class="nav-links nav-cta">Support</a>
+        </div>
+    </nav>
+
+    <div class="prediction-container">
+        <div style="text-align: center; margin-bottom: 50px;" class="animate-up">
+            <h2 style="font-size: 2.5rem;">Car Price Predictor</h2>
+            <p style="color: var(--text-muted);">Fill in the details below to get an instant valuation of your vehicle.</p>
+        </div>
+
+        <div class="form-card animate-up">
+            <form id="prediction-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Car Model</label>
+                        <select id="Car_Name" name="Car_Name" required>
+                            <option value="" disabled selected>Select Model</option>
+                            <option value="Nexon">Tata Nexon</option>
+                            <option value="Harrier">Tata Harrier</option>
+                            <option value="Safari">Tata Safari</option>
+                            <option value="Punch">Tata Punch</option>
+                            <option value="Altroz">Tata Altroz</option>
+                            <option value="Tiago">Tata Tiago</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Registration Year</label>
+                        <input type="number" id="Year" name="Year" placeholder="e.g. 2021" min="2000" max="2026" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Fuel Type</label>
+                        <select id="Fuel_Type" name="Fuel_Type" required>
+                            <option value="Petrol">Petrol</option>
+                            <option value="Diesel">Diesel</option>
+                            <option value="CNG">CNG</option>
+                            <option value="Electric">Electric</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Transmission</label>
+                        <select id="Transmission" name="Transmission" required>
+                            <option value="Manual">Manual</option>
+                            <option value="Automatic">Automatic</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Distance Driven (Kms)</label>
+                        <input type="number" id="Kms_Driven" name="Kms_Driven" placeholder="20000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Owner Type</label>
+                        <select id="Owner" name="Owner" required>
+                            <option value="1">1st Owner</option>
+                            <option value="2">2nd Owner</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Engine (cc)</label>
+                        <input type="number" id="Engine" name="Engine" value="1199" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Power (bhp)</label>
+                        <input type="number" step="0.1" id="Power" name="Power" value="85.0" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mileage (kmpl)</label>
+                        <input type="number" step="0.1" id="Efficiency" name="Efficiency" value="18.5" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Location</label>
+                        <select id="Location" name="Location" required>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Seller Type</label>
+                        <select id="Seller_Type" name="Seller_Type" required>
+                            <option value="Dealer">Dealer</option>
+                            <option value="Individual">Individual</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Initial Price (₹ Lakhs)</label>
+                        <input type="number" step="0.01" id="Present_Price" name="Present_Price" placeholder="10.50" required>
+                    </div>
+                    <input type="hidden" name="Seats" value="5">
+                </div>
+                <button type="submit" class="btn-predict" id="predict-btn">
+                    <i class="fas fa-calculator" style="margin-right: 10px;"></i> Calculate Price
+                </button>
+            </form>
+
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p style="text-align: center;">Analyzing market data...</p>
+            </div>
+
+            <div id="result-area" class="result-section hidden">
+                <div class="car-display">
+                    <img id="car-result-image" src="" alt="Predicted Car Model">
+                </div>
+                <h3 id="car-title" style="margin-bottom: 10px; font-size: 1.5rem;"></h3>
+                <p style="color: var(--text-muted);">Estimated Market Valuation</p>
+                <div class="price-display" id="predicted-price">₹ 0.00 Lakhs</div>
+                <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+                    <div style="background: #e2e8f0; padding: 10px 20px; border-radius: 50px; font-size: 0.9rem; font-weight: 600;">
+                        Reliability Score: 94%
+                    </div>
+                </div>
+                <p style="margin-top: 30px; font-size: 0.85rem; color: var(--text-muted); max-width: 600px; margin-inline: auto;">
+                    This prediction is based on our current AI model trained on historical resale data. Actual prices may vary based on vehicle condition and local demand.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Car Friendly Logo">
+                    <span>Car Friendly</span>
+                </div>
+                <p>Accuracy meets intelligence. Get the most reliable car price predictions based on real-time market data.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/predict">Predict Price</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/team">Who We Are</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="/contact">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul style="color: #94a3b8;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-phone" style="margin-right: 10px; color: var(--primary-color);"></i> +91 7276253680</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary-color);"></i> info@carfriendly.com</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary-color);"></i> Limda, Vadodara, Gujarat</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Car Friendly India Pvt Ltd. All rights reserved. | Developed by our Visionary Team</p>
+        </div>
+    </footer>
+
+    <script>
+        const carImages = {
+            'Nexon': 'nexon.png',
+            'Harrier': 'harrier.png',
+            'Safari': 'safari.png',
+            'Punch': 'punch.png',
+            'Altroz': 'altroz.png',
+            'Tiago': 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800'
+        };
+
+        const form = document.getElementById('prediction-form');
+        const predictBtn = document.getElementById('predict-btn');
+        const loading = document.getElementById('loading');
+        const resultArea = document.getElementById('result-area');
+        const resultImage = document.getElementById('car-result-image');
+        const predictedPrice = document.getElementById('predicted-price');
+        const carTitle = document.getElementById('car-title');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // UI States
+            predictBtn.classList.add('hidden');
+            loading.classList.remove('hidden');
+            resultArea.classList.add('hidden');
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            try {
+                const response = await fetch('/api/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+                
+                if (result.predicted_price) {
+                    // Update content
+                    const carModel = data.Car_Name;
+                    carTitle.textContent = `Tata ${carModel} (${data.Year})`;
+                    resultImage.src = carImages[carModel] || 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=800';
+                    predictedPrice.textContent = `₹ ${result.predicted_price.toFixed(2)} Lakhs`;
+                    
+                    // Show result
+                    setTimeout(() => {
+                        loading.classList.add('hidden');
+                        resultArea.classList.remove('hidden');
+                        resultArea.classList.add('active');
+                        predictBtn.classList.remove('hidden');
+                        resultArea.scrollIntoView({ behavior: 'smooth' });
+                    }, 800);
+                } else {
+                    alert('Error: ' + (result.error || 'Failed to get prediction'));
+                    loading.classList.add('hidden');
+                    predictBtn.classList.remove('hidden');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('Connection error. Please ensure the server is running.');
+                loading.classList.add('hidden');
+                predictBtn.classList.remove('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who We Are | Car Friendly</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .team-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin-top: 60px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .team-member {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.05);
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .team-member {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+        .member-img-container {
+            width: 180px;
+            height: 180px;
+            flex-shrink: 0;
+            margin-right: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #f1f5f9;
+            transition: var(--transition);
+        }
+        @media (max-width: 768px) {
+            .member-img-container {
+                margin-right: 0;
+                margin-bottom: 25px;
+            }
+        }
+        .member-info {
+            flex: 1;
+        }
+        .team-member:hover .member-img-container {
+            border-color: var(--primary-color);
+        }
+        .member-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+        }
+        .team-member:hover img {
+            filter: grayscale(0%);
+        }
+        .member-name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+            margin-bottom: 5px;
+        }
+        .member-role {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .member-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .social-links {
+                justify-content: center;
+            }
+        }
+        .social-link {
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        .social-link.linkedin { color: #0077b5; }
+        .social-link.github { color: #333; }
+        .social-link.instagram { color: #e1306c; }
+        
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <img src="logo.png" alt="Car Friendly Logo">
+            <span>Car Friendly</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/predict">Predict Car Price</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/team">Who We Are</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="info-section">
+        <div style="text-align: center; margin-bottom: 80px;" class="animate-up">
+            <h2 style="font-size: 3.5rem;">Meet Our <span style="color: var(--primary-color);">Visionaries</span></h2>
+            <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 800px; margin: 20px auto 0;">The passionate team behind Car Friendly, dedicated to making vehicle valuation transparent and accessible for everyone.</p>
+        </div>
+
+        <div class="team-grid">
+            <!-- Anurag -->
+            <div class="team-member animate-up" style="animation-delay: 0.1s;">
+                <div class="member-img-container">
+                    <img src="anu.jpg" alt="Anurag">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Anurag</h3>
+                    <span class="member-role">ML Developer</span>
+                    <p class="member-desc">Driving the machine learning architecture, model development, and core algorithm design of the project..</p>
+                    <div class="social-links">
+                        <a href="www.linkedin.com/in/anurag-verma4" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Anu7276" class="social-link github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/anuragverma7276/" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shreya -->
+            <div class="team-member animate-up" style="animation-delay: 0.2s;">
+                <div class="member-img-container">
+                    <img src="shreya.jpeg" alt="Shreya">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Shreya</h3>
+                    <span class="member-role">FRONTEND DEVELOPER & TESTING LEAD</span>
+                    <p class="member-desc">Designing intuitive user interfaces and ensuring system reliability through comprehensive testing</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/shreya-shrivastava-a55a16372?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/shrivastavashreya1722-ai" class="social-link github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/shreyaa_shrivastava__/" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pragati -->
+            <div class="team-member animate-up" style="animation-delay: 0.3s;">
+                <div class="member-img-container">
+                    <img src="pragati'.png" alt="Pragati">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Pragati</h3>
+                    <span class="member-role">DATA PREPROCESSING & FEATURE ENGINEER</span>
+                    <p class="member-desc">Transforming raw data into meaningful features through cleaning, preprocessing, and feature engineering techniques.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/pragati-patel-a748a5389/" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Piyuu1409" class="social-link github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://instagram.com/placeholder-pragati" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zakariya -->
+            <div class="team-member animate-up" style="animation-delay: 0.4s;">
+                <div class="member-img-container">
+                    <img src="zack.jpeg" alt="Zakariya">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Zakariya</h3>
+                    <span class="member-role">DATA ANALYST & COLLECTION LEAD</span>
+                    <p class="member-desc">Responsible for gathering real-world datasets and performing insightful data analysis to support model accuracy.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/mahmadzakariya-patel?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link linkedin" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/Zaku2007" class="social-link github" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/zakariya_nextgen_07?igsh=ank1ZDV3MXM3czJs" class="social-link instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Car Friendly Logo">
+                    <span>Car Friendly</span>
+                </div>
+                <p>Meet the team behind the technology. We're committed to revolutionizing the car valuation experience.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/predict">Predict Price</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/team">Who We Are</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="/contact">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul style="color: #94a3b8;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-phone" style="margin-right: 10px; color: var(--primary-color);"></i> +91 7276253680</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary-color);"></i> info@carfriendly.com</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary-color);"></i> Limda, Vadodara, Gujarat</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Car Friendly India Pvt Ltd. All rights reserved. | Developed by our Visionary Team</p>
+        </div>
+    </footer>
+</body>
+</html>

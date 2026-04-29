@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Car Friendly</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">
+            <img src="logo.png" alt="Car Friendly Logo">
+            <span>Car Friendly</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/predict">Predict Car Price</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/team">Who We Are</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="info-section">
+        <div style="text-align: center; margin-bottom: 60px;" class="animate-up">
+            <h2 style="font-size: 3rem;">Get In Touch</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Have questions or need assistance? Our team is here to help.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px;" class="animate-up">
+            <div style="background: white; padding: 40px; border-radius: 24px; box-shadow: var(--shadow);">
+                <div style="margin-bottom: 30px;">
+                    <i class="fas fa-phone-alt" style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.2rem;">Phone Number</h4> 
+                    <p style="color: var(--text-muted);">+91 7276253680</p>
+                    <p style="color: var(--text-muted);">+91 7054649177</p>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <i class="fas fa-envelope" style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.2rem;">Email Address</h4>
+                    <p style="color: var(--text-muted);">info@carfriendly.com</p>
+                </div>
+                <div>
+                    <i class="fas fa-location-dot" style="font-size: 1.5rem; color: var(--primary-color); margin-bottom: 10px;"></i>
+                    <h4 style="font-size: 1.2rem;">Office Location</h4>
+                    <p style="color: var(--text-muted);">Car Friendly Office, Vaghodia road,<br>Limda, Vadodara, Gujarat, 391760</p>
+                </div>
+            </div>
+
+            <div class="form-card">
+                <form>
+                    <div class="form-grid" style="grid-template-columns: 1fr 1fr;">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email ID</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>Subject</label>
+                        <input type="text" placeholder="How can we help you today?" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <label>Message</label>
+                        <textarea style="padding: 12px 16px; border-radius: 12px; border: 2px solid #e2e8f0; font-size: 1rem; min-height: 150px; outline: none; transition: var(--transition);" placeholder="Enter your message here..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-predict" style="margin-top: 30px;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Car Friendly Logo">
+                    <span>Car Friendly</span>
+                </div>
+                <p>Have questions? We're here to help you navigate the world of car resale with ease and confidence.</p>
+                <div class="footer-socials">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/predict">Predict Price</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="/team">Who We Are</a></li>
+                    <li><a href="/contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="/contact">Help Center</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul style="color: #94a3b8;">
+                    <li style="margin-bottom: 12px;"><i class="fas fa-phone" style="margin-right: 10px; color: var(--primary-color);"></i> +91 7276253680</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary-color);"></i> info@carfriendly.com</li>
+                    <li style="margin-bottom: 12px;"><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--primary-color);"></i> Limda, Vadodara, Gujarat</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Car Friendly India Pvt Ltd. All rights reserved. | Developed by our Visionary Team</p>
+        </div>
+    </footer>
+</body>
+</html>
