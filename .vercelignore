@@ -1,0 +1,6 @@
+projects/dataset/
+projects/scratch/
+projects/model/baseline_model.pkl
+projects/vehicle_price_prediction.py
+__pycache__/
+*.pyc
